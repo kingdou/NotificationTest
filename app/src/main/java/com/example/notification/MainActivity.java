@@ -24,9 +24,10 @@ public class MainActivity extends Activity {
                 NotificationManager manager = (NotificationManager)getSystemService(Context.NOTIFICATION_SERVICE);
                 Notification notification;
                 Intent intent=new Intent(MainActivity.this,MainActivity.class);
-                PendingIntent pi=PendingIntent.getActivity(MainActivity.this,0,intent,PendingIntent.FLAG_CANCEL_CURRENT);
+                PendingIntent pi=PendingIntent.getActivity(MainActivity.this, 0, intent, PendingIntent.FLAG_CANCEL_CURRENT);
                 Notification.Builder builder = new Notification.Builder(MainActivity.this).setTicker("hello").setSmallIcon(R.mipmap.ic_launcher);
                 notification = builder.setContentTitle("hello").setContentText("world").setContentIntent(pi).build();
+                notification.defaults= Notification.DEFAULT_ALL;
                 manager.notify(1,notification);
             }
         });
